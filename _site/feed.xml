@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom" xmlns:dc="http://purl.org/dc/elements/1.1/">
+  <channel>
+    <title>Ambtion的博客</title>
+    <description>记录成长的点滴</description>
+    <link>http://your-blog-url.example.com</link>
+    <atom:link href="http://your-blog-url.example.com/feed.xml" rel="self" type="application/rss+xml" />
+    
+      <item>
+        <title>Airplay调研</title>
+        
+        
+          <description>&lt;h2&gt;&lt;a href=&quot;https://www.apple.com/airplay/&quot;&gt;AirPlay概要&lt;/a&gt;&lt;/h2&gt;
+</description>
+        
+        <pubDate>Wed, 01 Jul 2015 00:00:00 +0800</pubDate>
+        <link>http://your-blog-url.example.com/2015/AirPlay%E8%B0%83%E7%A0%94/</link>
+        <guid isPermaLink="true">http://your-blog-url.example.com/2015/AirPlay%E8%B0%83%E7%A0%94/</guid>
+      </item>
+    
+  </channel>
+</rss>

@@ -1,30 +1,35 @@
-# Permalinks
-#
-# Use of `relative_permalinks` ensures post links from the index work properly.
-permalink:           pretty
-relative_permalinks: true
+name: Ambtion的博客
+description: 记录成长的点滴
+meta_description: "我的博客，只为记录成长的点滴"
 
-# Setup
-title:               Ambtion的博客
-tagline:             积累就有进步
-url:               
-paginate:            1
-baseurl:             ""
+aboutPage: false
 
-# Assets
-#
-# We specify the directory for Jekyll so we can use @imports.
-sass:
-  sass_dir:          _sass
-  style:            :compressed
+markdown: redcarpet
+highlighter: pygments
 
-# About/contact
-author:
-  name:              Ambtion
-  url:               
-  email:             
+paginate: 20
+baseurl: /
+domain_name: 'http://yourblog-domain.com'
+google_analytics: 'UA-XXXXXXXX-X'
+disqus_shortname: 'your-disqus-shortname'
 
-# Custom vars
-version:             2.0.0
-github:
-  repo:              https://github.com/poole/poole
+# Details for the RSS feed generator
+url:            'http://your-blog-url.example.com'
+author:         'Ambtion'
+authorTwitter:  'YourTwitterUsername'
+
+permalink:       /:year/:title/
+
+defaults:
+    -
+        scope:
+            path: "" # empty string for all files
+            type: pages
+        values:
+            layout: default
+    -
+        scope:
+            path: "" # empty string for all files
+            type: posts
+        values:
+            layout: post

@@ -1,0 +1,145 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+
+  <title>Ambtion的博客 - Airplay调研</title>
+  <link rel="shortcut icon" href="/assets/images/favicon.ico">
+  <link rel="stylesheet" href="/assets/css/style.css">
+  <link rel="alternate" type="application/rss+xml" title="My Blog" href="/rss.xml">
+  <link rel="stylesheet" href="/assets/css/highlight.css">
+</head>
+<body>
+
+  <nav class="main-nav">
+    
+        <a href='/'> <span class="arrow">←</span> Home </a>
+    
+
+    
+        
+    
+    <a class="cta" href="/feed.xml">Subscribe</a>
+</nav>
+
+  
+
+  <section id="wrapper" class="">
+    <article class="post">
+    <header>
+        <h1>Airplay调研</h1>
+        <h2 class="headline">July 1, 2015</h2>
+    </header>
+    <section id="post-body">
+        <h2><a href="https://www.apple.com/airplay/">AirPlay概要</a></h2>
+
+<h2>1：什么是AirPlay ？</h2>
+
+<p>苹果用于家庭网络共享数据的协议。</p>
+
+<h2>2 AirPlay用来干什么 ？</h2>
+
+<p>目前主要iphone,ipad，ipod touch 到Apple TV 已经苹果授权的其他硬件设备的数据传输（PS：以上是官方说法。使用AirSearve(实现AirPlay协议的一个客户端，支持os，ios系统，ios系统需要越狱安装）也可是现实多种苹果设备间的数据传输。</p>
+
+<h2>3 AirPlay 协议传输数据方式</h2>
+
+<p>照片和幻灯片的投射 （Photos）
+ 音频留的投射 （Stream audio）
+ 视频流的投射 （videos）
+ 屏幕内容的投射 （AirPlay Mirroring）</p>
+
+<h2>4 AirPlay 在使用的过程中不需要任何配置，仅仅需要在同一局域网环境下就可以放心对方。如何实现的？</h2>
+
+<p>AirPlay的 “Search Searver”服务是基于<a href="http://baike.baidu.com/link?url=JV849r3u0e_8Y80LR4KoCSpmiO8VPxYHNpepo4K6AXfSHtKUyuc7lnk446eLZAf8fn7RGF7WMITqa_PS_DtYr_">零配置联网</a>协议的。</p>
+
+<p>接受AirPlay协议的硬件设备会公开两部分内容。在这两部分内容中，其他设备可以找到并且读取一些基本信息，包括设备名字，设备支持的内容类型等。</p>
+
+<p>参看文献： http://nto.github.io/AirPlay.html</p>
+
+<h2>5 ios App开发中AirPlay的使用方式</h2>
+
+<p>目前苹果开放的SDK中，只有当App是用于播放媒体的适合，用户可以在App内显示&quot;AirPlay 设备列表”按钮。
+  屏幕镜像接口未找到
+  官方给出的Demon如下：</p>
+
+<p>你可以使用如下代码显示&quot;AirPlay 设备列表”按钮.</p>
+<div class="highlight"><pre><code class="language-text" data-lang="text"> MPVolumeView *volumeView = [ [MPVolumeView alloc] init] ; 
+ [view addSubview:volumeView];
+</code></pre></div>
+<p>如果你想仅仅显示AirPlay按钮，而不显示音量大小，你可以使用如下代码</p>
+<div class="highlight"><pre><code class="language-text" data-lang="text"> MPVolumeView *volumeView = [ [MPVolumeView alloc] init] ;
+ [volumeView setShowsVolumeSlider:NO];
+ [volumeView sizeToFit];
+ [view addSubview:volumeView];
+</code></pre></div>
+<p>PS：只有AirPlay设备列表不为空的适合，按钮才才能显示，当然，越狱系统可以下载响应组件强制显示</p>
+
+<p>参看文献 <a href="https://developer.apple.com/library/ios/documentation/AudioVideo/Conceptual/AirPlayGuide/EnrichYourAppforAirPlay/EnrichYourAppforAirPlay.html#//apple_ref/doc/uid/TP40011045-CH6-SW1">AirPlay Guide</a></p>
+
+<h2>以上内容如有错误，请大家指出</h2>
+
+    </section>
+</article>
+<footer id="post-meta" class="clearfix">
+    <a href="http://twitter.com/YourTwitterUsername">
+        <img class="avatar" src="/assets/images/avatar.png">
+        <div>
+            <span class="dark">Ambtion</span>
+            <span>记录成长的点滴</span>
+        </div>
+    </a>
+
+    <section id="sharing">
+        <a class="twitter" href="https://twitter.com/intent/tweet?text=//2015/AirPlay%E8%B0%83%E7%A0%94/ - Airplay调研 by @YourTwitterUsername"><span class="icon-twitter"> Tweet</span></a>
+
+<a class="facebook" href="#" onclick="
+    window.open(
+      'https://www.facebook.com/sharer/sharer.php?u='+encodeURIComponent(location.href),
+      'facebook-share-dialog',
+      'width=626,height=436');
+    return false;"><span class="icon-facebook-rect"> Share</span>
+</a>
+    </section>
+</footer>
+
+<!-- Disqus comments -->
+
+
+<!-- Archive post list -->
+
+    <ul id="post-list" class="archive readmore">
+        <h3>Read more</h3>
+        
+            <li>
+                <a href="/2015/AirPlay%E8%B0%83%E7%A0%94/">Airplay调研<aside class="dates">Jul 01</aside></a>
+            </li>
+        
+    </ul>
+
+
+
+
+
+  </section>
+
+  <script src="//ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>
+  <script src="/assets/js/main.js"></script>
+  <script src="/assets/js/highlight.js"></script>
+  <script>hljs.initHighlightingOnLoad();</script>
+
+  <script>
+    (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+    (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+    m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+    })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+    ga('create', 'UA-XXXXXXXX-X', 'auto');
+    ga('send', 'pageview');
+  </script>
+</body>
+</html>
+
+
+
