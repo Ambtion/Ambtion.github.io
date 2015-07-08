@@ -7,15 +7,28 @@
     <atom:link href="http://your-blog-url.example.com/feed.xml" rel="self" type="application/rss+xml" />
     
       <item>
-        <title>Airplay调研</title>
+        <title>苹果家庭网络服务airplay研究</title>
         
         
           <description>&lt;h2&gt;&lt;a href=&quot;https://www.apple.com/airplay/&quot;&gt;AirPlay概要&lt;/a&gt;&lt;/h2&gt;
 </description>
         
-        <pubDate>Wed, 01 Jul 2015 00:00:00 +0800</pubDate>
-        <link>http://your-blog-url.example.com/2015/AirPlay%E8%B0%83%E7%A0%94/</link>
-        <guid isPermaLink="true">http://your-blog-url.example.com/2015/AirPlay%E8%B0%83%E7%A0%94/</guid>
+        <pubDate>Sat, 04 Jul 2015 00:00:00 +0800</pubDate>
+        <link>http://your-blog-url.example.com/2015/%E8%8B%B9%E6%9E%9C%E5%AE%B6%E5%BA%AD%E7%BD%91%E7%BB%9C%E6%9C%8D%E5%8A%A1AirPlay%E7%A0%94%E7%A9%B6/</link>
+        <guid isPermaLink="true">http://your-blog-url.example.com/2015/%E8%8B%B9%E6%9E%9C%E5%AE%B6%E5%BA%AD%E7%BD%91%E7%BB%9C%E6%9C%8D%E5%8A%A1AirPlay%E7%A0%94%E7%A9%B6/</guid>
+      </item>
+    
+      <item>
+        <title>Nsnotification在多线程下的转发</title>
+        
+        
+          <description>&lt;p&gt;Notification在多线程下的转发
+1：Notification的发送与接收处理都是在同一个线程中&lt;/p&gt;
+</description>
+        
+        <pubDate>Sat, 27 Jun 2015 00:00:00 +0800</pubDate>
+        <link>http://your-blog-url.example.com/2015/NSNotification%E5%9C%A8%E5%A4%9A%E7%BA%BF%E7%A8%8B%E4%B8%8B%E7%9A%84%E8%BD%AC%E5%8F%91/</link>
+        <guid isPermaLink="true">http://your-blog-url.example.com/2015/NSNotification%E5%9C%A8%E5%A4%9A%E7%BA%BF%E7%A8%8B%E4%B8%8B%E7%9A%84%E8%BD%AC%E5%8F%91/</guid>
       </item>
     
   </channel>
