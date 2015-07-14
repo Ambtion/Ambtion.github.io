@@ -5,7 +5,7 @@
   <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
   <meta name="viewport" content="width=device-width, initial-scale=1">
 
-  <title>Ambtion的博客 - Nsnotification在多线程下的转发</title>
+  <title>Ambtion的博客 - page</title>
   <link rel="shortcut icon" href="/assets/images/favicon.ico">
   <link rel="stylesheet" href="/assets/css/style.css">
   <link rel="alternate" type="application/rss+xml" title="My Blog" href="/rss.xml">
@@ -29,44 +29,33 @@
   <section id="wrapper" class="">
     <article class="post">
     <header>
-        <h1>Nsnotification在多线程下的转发</h1>
-        <h2 class="headline">June 27, 2015</h2>
+        <h1>page</h1>
+        <h2 class="headline"></h2>
     </header>
     <section id="post-body">
-        <p>Notification在多线程下的转发
-1：Notification的发送与接收处理都是在同一个线程中</p>
+        <p><span class='newthought'>In this first iteration</span>  of the <em>Tufte-Jekyll</em> theme, a post and a page have exactly the same layout. That means that all the typographic and structural details are identical between the two.</p>
 
-<p>@implementation ViewController</p>
+<h2>Pages and Posts</h2>
 
-<ul>
-<li>(void)viewDidLoad { [super viewDidLoad];</li>
-</ul>
+<p>Jekyll provides for both pages and posts in its default configuration. I have left this as-is. </p>
 
-<p><code>NSLog(@&quot;current thread = %@&quot;, [NSThread currentThread]);</code></p>
+<h3>Posts</h3>
 
-<p><code>[[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(handleNotification:) name:TEST_NOTIFICATION object:nil];</code></p>
+<p>Conceptually, posts are for recurring pieces of similar content such as might be found in a typical blog entry. Post content all sits in a folder named <code>_posts</code> and files are created in this folder<sup class='sidenote-number'>1</sup><span class='sidenote'><sup class='sidenote-number'>1</sup> Yes, a page has essentially the same old shit as a post</span> that are names with a date pre-pended to the title of the post. For instance <code>2105-02-20-this-is-a-post.md</code> is a perfectly valid post filename.</p>
 
-<p><code>dispatch_async(dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_DEFAULT, 0), ^{</code></p>
-<div class="highlight"><pre><code class="language-text" data-lang="text">`[[NSNotificationCenter defaultCenter] postNotificationName:TEST_NOTIFICATION object:nil userInfo:nil];`
+<p>Posts will always have a section above the content itself consisting of YAML front matter, which is meta-data information about the post. Minimally, a post title must always be present for it to be processed properly.</p>
+<div class="highlight"><pre><code class="language-text" data-lang="text">---
+Title: Some Title
+---
+## Content
+
+Markdown formatted content *here*.
 </code></pre></div>
-<p><code>});</code>
-}</p>
+<h3>Pages</h3>
 
-<ul>
-<li>(void)handleNotification:(NSNotification *)notification { NSLog(@&quot;current thread = %@&quot;, [NSThread currentThread]); NSLog(@&quot;test notification&quot;); }</li>
-</ul>
+<p>Pages are any HTML documents <em>or</em> Markdown documents with YAML front matter that are then converted to content. Page material is more suited to static, non-recurring types of content. Like this</p>
 
-<p>@end</p>
-
-<p>2: NSNotificationCenter是线程安全的，但是并不意味这可以在多线程中任意使用，不合理使用依旧可以导致Crash</p>
-
-<p>1 : 线程A抛消息</p>
-
-<p>2 : 线程A的Reciver接受处理消息</p>
-
-<p>3 : 线程B释放Reciver</p>
-
-<p>4 : Reciver 处理消息过程中访问Reciver，此时Reciver已经释放，导致Crash</p>
+<p>I am not going to re-write the Jekyll documentation. Read it and you will figure out how the site is structured.</p>
 
     </section>
 </article>
@@ -80,7 +69,7 @@
     </a>
 
     <section id="sharing">
-        <a class="twitter" href="https://twitter.com/intent/tweet?text=//2015/NSNotification%E5%9C%A8%E5%A4%9A%E7%BA%BF%E7%A8%8B%E4%B8%8B%E7%9A%84%E8%BD%AC%E5%8F%91/ - Nsnotification在多线程下的转发 by @YourTwitterUsername"><span class="icon-twitter"> Tweet</span></a>
+        <a class="twitter" href="https://twitter.com/intent/tweet?text=//page/index.html - page by @YourTwitterUsername"><span class="icon-twitter"> Tweet</span></a>
 
 <a class="facebook" href="#" onclick="
     window.open(
