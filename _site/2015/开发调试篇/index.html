@@ -33,24 +33,25 @@
         <h2 class="headline">July 14, 2015</h2>
     </header>
     <section id="post-body">
-        <h2><strong><em>开发调试类型</em></strong></h2>
+        <h1><strong><em>开发调试类型</em></strong></h1>
 
 <hr>
 
-<h3>使用Xcode</h3>
+<h2>使用Xcode</h2>
 
-<h3>使用LLDB</h3>
+<h2>使用LLDB</h2>
 
-<h3>使用Runtime</h3>
+<h2>使用Runtime</h2>
 
-<h3>使用<a href="http://www.hopperapp.com/">hopper</a>反汇编参看汇编或者伪代码</h3>
+<h2>使用<a href="http://www.hopperapp.com/">hopper</a>反汇编参看汇编或者伪代码</h2>
 
 <hr>
 
-<h3>一：<a href="https://developer.apple.com/library/ios/recipes/xcode_help-debugger/articles/about_debug_area.html#//apple_ref/doc/uid/TP40009986-CH3-SW1"><strong>Xcode Debug</strong></a></h3>
+<h2>一：<a href="https://developer.apple.com/library/ios/recipes/xcode_help-debugger/articles/about_debug_area.html#//apple_ref/doc/uid/TP40009986-CH3-SW1"><strong>Xcode Debug</strong></a></h2>
+
+<p><img src="https://github.com/Ambtion/ambtion.github.io/blob/master/imageSource/lldb/Debug_Area.png?raw=true" alt="Xcode Debug Area"></p>
 
 <ul>
-<li><img src="https://github.com/Ambtion/ambtion.github.io/blob/master/imageSource/lldb/Debug_Area.png?raw=true" alt="Xcode Debug Area"></li>
 <li>查看当前程序的线程</li>
 <li>查看使用内存的地址</li>
 <li>查看程序的视图页面栈</li>
@@ -60,11 +61,11 @@
 
 <hr>
 
-<h3>二：<strong>使用LLDB</strong></h3>
+<h2>二：<strong>使用LLDB</strong></h2>
 
 <p>LLDB 是一个有着REPL(Read Eval Print Loop) 的特性和C++，Python插件的开源调速器。</p>
 
-<h5><strong>支持功能</strong></h5>
+<h3><strong>支持功能</strong></h3>
 
 <ul>
 <li>Read   读取</li>
@@ -73,7 +74,7 @@
 <li>*<br></li>
 </ul>
 
-<h5><strong>缺陷弊端</strong></h5>
+<h3><strong>缺陷弊端</strong></h3>
 
 <ul>
 <li>创建新函数.block</li>
@@ -81,7 +82,7 @@
 <li>*</li>
 </ul>
 
-<h5><strong>功能类型</strong></h5>
+<h3><strong>功能类型</strong></h3>
 
 <ul>
 <li>Debug Commands</li>
@@ -89,10 +90,11 @@
 <li>*</li>
 </ul>
 
-<h5><strong>基本使用</strong></h5>
+<h3><strong>基本使用</strong></h3>
+
+<p><img src="https://github.com/Ambtion/ambtion.github.io/blob/master/imageSource/lldb/Create_breakpoint.png?raw=true" alt="添加断点"></p>
 
 <ul>
-<li><img src="https://github.com/Ambtion/ambtion.github.io/blob/master/imageSource/lldb/Create_breakpoint.png?raw=true" alt="添加断点"></li>
 <li>Condition : 添加断点调节，比如 填写 “i==100”，那么当 “i==100”断点执行</li>
 <li>Ignore：忽略几次断点</li>
 <li>Action:添加断点行为，可以是调试器命令，shell 命令，也可以是更直接的打印 </li>
@@ -100,48 +102,47 @@
 <li>*</li>
 </ul>
 
-<h5><strong>调试命令</strong></h5>
+<h3><strong>调试命令</strong></h3>
 
-<h6><em>Expression | e</em></h6>
+<h4>Expression | e</h4>
+
+<p><img src="https://github.com/Ambtion/ambtion.github.io/blob/master/imageSource/lldb/LLDB_E.png?raw=true" alt="LLDB expression"></p>
 
 <ul>
-<li><img src="https://github.com/Ambtion/ambtion.github.io/blob/master/imageSource/lldb/LLDB_E.png?raw=true" alt="LLDB expression"></li>
 <li>expression 功能： </li>
 <li>打印调试的值</li>
 <li>在调试空间生成一个临时变量</li>
 <li>改变变量的值</li>
 <li>在调试工具命名变量</li>
-<li>
-###### <em>Printf | p  (call)</em>
-&#39;print&#39; is an abbreviation for &#39;expression --&#39;.(print是 <code>expression --</code> 的缩写)</li>
+<li>*</li>
 </ul>
 
-<h5><strong>断点控制</strong></h5>
+<h4>Printf | p  (call)</h4>
+<div class="highlight"><pre><code class="language-text" data-lang="text">&#39;print&#39; is an abbreviation for &#39;expression --&#39;.(print是 `expression --` 的缩写)
+</code></pre></div>
+<h3><strong>断点控制</strong></h3>
 
-<ul>
-<li><p><img src="https://github.com/Ambtion/ambtion.github.io/blob/master/imageSource/lldb/Thread_progross.png?raw=true" alt=""></p>
-<div class="highlight"><pre><code class="language-text" data-lang="text">|Name           |LLDB                              |
-|continue       |process continue(c)               |       
-|step over      |thread step-over(next)(n)(step)(s)|
-|step into      |thread step-in                    |
-|step  out      |thread step-out                   |
-</code></pre></div></li>
-</ul>
-
-<h5><strong>Thread return</strong></h5>
+<p><img src="https://github.com/Ambtion/ambtion.github.io/blob/master/imageSource/lldb/Thread_progross.png?raw=true" alt=""></p>
+<div class="highlight"><pre><code class="language-text" data-lang="text">    |Name           |LLDB                              |
+    |continue       |process continue(c)               |       
+    |step over      |thread step-over(next)(n)(step)(s)|
+    |step into      |thread step-in                    |
+    |step  out      |thread step-out                   |
+</code></pre></div>
+<h3><strong>Thread return</strong></h3>
 <div class="highlight"><pre><code class="language-text" data-lang="text">模拟函数返回，可以带上一个参数表示函数返回参数，该断点后的代码不被执行，由于破坏函数的执行，可能导致ARC机制的引用计  数出问题，导致内存泄露；
 </code></pre></div>
-<h5><strong>LLDB Demon</strong></h5>
+<h3><strong>LLDB Demon</strong></h3>
 <div class="highlight"><pre><code class="language-text" data-lang="text"> [插入一个ios私有接口的git开源库，试用LLDB中由于是Debug，我们可以通过访问一些私有接口Debug](https://github.com/Ambtion/iOS-Headers)
 </code></pre></div>
 <ul>
-<li><p>1： <em>更新UI</em></p>
+<li><p>1： 更新UI</p>
 <div class="highlight"><pre><code class="language-text" data-lang="text">(lldb) po [[[UIApplication sharedApplication] keyWindow] recursiveDescription]
 &lt;UIWindow: 0x7f82b1fa8140; frame = (0 0; 320 568); gestureRecognizers = &lt;NSArray: 0x7f82b1fa92d0&gt;;layer = &lt;UIWindowLayer: 0x7f82b1fa8400&gt;&gt; | &lt;UIView: 0x7f82b1d01fd0; frame = (0 0; 320 568);autoresize =   W+H; layer = &lt;CALayer: 0x7f82b1e2e0a0&gt;&gt;
 (lldb) e id $myView = (id)0x7f82b1d01fd0
 (lldb) e (void)[CATransaction flush]
 </code></pre></div></li>
-<li><p>2: <em>PushView</em></p>
+<li><p>2: PushView</p>
 <div class="highlight"><pre><code class="language-text" data-lang="text">(lldb) e id $nvc = [[[UIApplication sharedApplication] keyWindow] rootViewController]
 (lldb) e id $vc = [UIViewController new]
 (lldb) e (void)[[$vc view] setBackgroundColor:[UIColor yellowColor]]
@@ -150,17 +151,22 @@
 </code></pre></div></li>
 </ul>
 
-<h5><a href="https://github.com/facebook/chisel">Chisel</a></h5>
+<h3><a href="https://github.com/facebook/chisel"><strong>Chisel</strong></a></h3>
 
 <ul>
-<li><p>1：Chisel原理</p></li>
-<li><p>LLDB 有内建的，完整的 Python 支持。在LLDB中输入 script,会打开一个 Python REPL，我们也可以写入Python命令，运行自己写的Python命令。我们可以写一个Python脚本，在调起LLDB的时候，执行如下命令:</p>
+<li><p>1：Chisel原理
+LLDB 有内建的，完整的 Python 支持。在LLDB中输入 script,会打开一个 Python REPL，我们也可以写入Python命令，运行自己写的Python命令。我们可以写一个Python脚本，在调起LLDB的时候，执行如下命令:</p>
 <div class="highlight"><pre><code class="language-text" data-lang="text">command script import ~/myCommands.py
 </code></pre></div></li>
-<li><p>或者把这行命令放在 /.lldbinit 里，这样每次进入 LLDB 时都会自动运行</p></li>
-<li><p><img src="https://github.com/Ambtion/ambtion.github.io/blob/master/imageSource/lldb/ManLLDB.png?raw=true" alt="man lldb"></p></li>
-<li><p>2：Chisel支持命令</p></li>
-<li><p><img src="https://github.com/Ambtion/ambtion.github.io/blob/master/imageSource/lldb/Chisel_Commond.png?raw=true" alt="Commond"></p></li>
+</ul>
+
+<p>或者把这行命令放在 /.lldbinit 里，这样每次进入 LLDB 时都会自动运行</p>
+
+<p><img src="https://github.com/Ambtion/ambtion.github.io/blob/master/imageSource/lldb/ManLLDB.png?raw=true" alt="man lldb"></p>
+
+<ul>
+<li><p>2：Chisel支持命令
+<img src="https://github.com/Ambtion/ambtion.github.io/blob/master/imageSource/lldb/Chisel_Commond.png?raw=true" alt="Commond"></p></li>
 <li><p>3：Python自定义命令框架,原理查考1条目或者<a href="https://github.com/facebook/chisel">Chise ReadMe</a>  </p></li>
 </ul>
 
@@ -168,20 +174,17 @@
 
 <h2>三：使用Runtime</h2>
 
-<ul>
-<li>使用Runtime跟踪函数，重写系统方法。输出Log. 推荐一个Git开源库 ： <a href="https://github.com/steipete/Aspects">Aspects</a></li>
-</ul>
+<p>使用Runtime跟踪函数，重写系统方法。输出Log. 推荐一个Git开源库 ： <a href="https://github.com/steipete/Aspects">Aspects</a></p>
 
 <hr>
 
 <h2>四：使用<a href="http://www.hopperapp.com/"> hopper</a>反汇编参看汇编或者伪代码</h2>
 
-<ul>
-<li>我们可以反汇编 /Applications/Xcode.app/Contents/Developer/Platforms/</li>
-<li>iPhoneSimulator.platform/Developer/SDKs/iPhoneSimulator.sdk/System/</li>
-<li>Library/Frameworks/UIKit.framework下的二进制文件（<strong>UIKit</strong>),查看系统函数调用实现。</li>
-<li><img src="https://github.com/Ambtion/ambtion.github.io/blob/master/imageSource/lldb/Hopperapp_demon.png?raw=true" alt="dismissController 伪代码"></li>
-</ul>
+<p>我们可以反汇编 /Applications/Xcode.app/Contents/Developer/Platforms/
+iPhoneSimulator.platform/Developer/SDKs/iPhoneSimulator.sdk/System/
+Library/Frameworks/UIKit.framework下的二进制文件（<strong>UIKit</strong>),查看系统函数调用实现。</p>
+
+<p><img src="https://github.com/Ambtion/ambtion.github.io/blob/master/imageSource/lldb/Hopperapp_demon.png?raw=true" alt="dismissController 伪代码"></p>
 
     </section>
 </article>
