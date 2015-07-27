@@ -7,7 +7,7 @@
   
   在IOS开发中，所有的视图都是以UIView（Mac是NSView）作为基类派生而来，通过树形结构管理视图显示。UIView可以处理触摸事件，支持2D矩阵映射，支持基与Core Graphics的绘制，同时也能实现一些简答的基本动画。CALayer在概念上和UIView一样，他也是通过树形结构管理视图，支持矩阵映射，支持Core Graphics绘制。同时也支持动画实现。
 
-* UIView是对CALayer的封装，这种设计主要是为了职责分离，重用代码
+* __UIView是对CALayer的封装，这种设计主要是为了职责分离，重用代码__
   
   每一个UIView都有一个CALayer的实例，他们的树形结构一一对应。实际上UIView只是的对CALayer进行了一次封装，暴露部分CALayer支持的功能，同时额外的支持事件响应,苹果之所以使用这个种UIView，CALayer对应的设计模式，主要是为了做到职责分离。由于Mac的事件和移动设备的事件全然不同，所以考虑到代码的复用，所以将他们的事件却别分离。
 
@@ -29,7 +29,7 @@
 * 多级非线性动画
 
 
-### 图层内容属性
+### CALayer内容属性
 
 * #### contents属性
  	IOS设置一个CGImageRef，Mac OS X 10.6及其以后，你可以设置一个 NSImage，
@@ -47,7 +47,7 @@
 * #### contentsCenter
 	contentsCenter是一个Rect区域，他的指定content的拉伸效果。和局部拉伸图片的函数效果一样。
 	
-### 通过Core Graphics自定义内容
+### CALayer自定义图层内容
 
 * #### UIView层次
 	继承UIView 实现 drawRect: 自定义绘制内容。（__注意：当系统检查到DrawRect被调用的时候，系统会为视图分配一个寄宿图，这个寄宿图的大小等于视图大小乘以contentsScale。所以不要在自定义的视图中写一个空的DrawRect函数__）
@@ -77,7 +77,7 @@
 
 
 值得注意的是display方法会创建一个视图图形上下文不会自动设置UIKit上下文。为了使用UIKit来绘图，所以CALayer绘制值中，我们需要调用UIGraphicsPushContext（）方法指定接收到的上下文为当前上下文。
-   
+
    
 ### 参考文献
 [View Programming Guide for iOS](https://developer.apple.com/library/ios/documentation/WindowsViews/Conceptual/ViewPG_iPhoneOS/WindowsandViews/WindowsandViews.html#//apple_ref/doc/uid/TP40009503-CH2-SW1)
