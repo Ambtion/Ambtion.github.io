@@ -29,7 +29,7 @@
 * 多级非线性动画
 
 
-### CALayer内容属性
+### 图层的内容属性
 
 * #### contents属性
  	IOS设置一个CGImageRef，Mac OS X 10.6及其以后，你可以设置一个 NSImage，
@@ -47,7 +47,7 @@
 * #### contentsCenter
 	contentsCenter是一个Rect区域，他的指定content的拉伸效果。和局部拉伸图片的函数效果一样。
 	
-### CALayer自定义图层内容
+### 自定义图层内容
 
 * #### UIView层次
 	继承UIView 实现 drawRect: 自定义绘制内容。（__注意：当系统检查到DrawRect被调用的时候，系统会为视图分配一个寄宿图，这个寄宿图的大小等于视图大小乘以contentsScale。所以不要在自定义的视图中写一个空的DrawRect函数__）
@@ -77,6 +77,11 @@
 
 
 值得注意的是display方法会创建一个视图图形上下文不会自动设置UIKit上下文。为了使用UIKit来绘图，所以CALayer绘制值中，我们需要调用UIGraphicsPushContext（）方法指定接收到的上下文为当前上下文。
+
+### 图层的几何属性
+
+
+
 
    
 ### 参考文献
