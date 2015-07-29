@@ -139,7 +139,7 @@ sublayerTransform会自动应用于Layer上的所有子图层，默认是identit
 * #### shadowPath通过CGPath自定阴影形状
 * #### mask mask是视图的一个子图层，他有图层所有的属性，他自定图层显示的内容
 
-
+![](https://github.com/Ambtion/ambtion.github.io/blob/master/imageSource/CoreAnimaiton/CAlayer1/calayer_mask.png?raw=ture)
 
 #### PS：本章主要讲述的是CALayer的常见属性，以及和动画关联较大的属性，其他具体属性可以参阅查考文献中的Apple CALayer Class
 
