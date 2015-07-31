@@ -5,8 +5,8 @@
 ## CALayer 专用图层
 
 *  [CAShapeLayer](https://developer.apple.com/library/prerelease/ios/documentation/GraphicsImaging/Reference/CAShapeLayer_class/index.html#//apple_ref/occ/cl/CAShapeLayer) 
-* [CATextLayer](https://developer.apple.com/library/prerelease/ios/documentation/GraphicsImaging/Reference/CATextLayer_class/index.html#//apple_ref/occ/cl/CATextLayer)
 * [CAGradientLayer](https://developer.apple.com/library/prerelease/ios/documentation/GraphicsImaging/Reference/CAGradientLayer_class/index.html#//apple_ref/occ/cl/CAGradientLayer)
+* [CATextLayer](https://developer.apple.com/library/prerelease/ios/documentation/GraphicsImaging/Reference/CATextLayer_class/index.html#//apple_ref/occ/cl/CATextLayer)
 *  [CAReplicatorLayer](https://developer.apple.com/library/prerelease/ios/documentation/GraphicsImaging/Reference/CAReplicatorLayer_class/index.html#//apple_ref/occ/cl/CAReplicatorLayer)
 * [CAScrollLayer](https://developer.apple.com/library/prerelease/ios/documentation/GraphicsImaging/Reference/CAScrollLayer_class/index.html#//apple_ref/occ/cl/CAScrollLayer)
 * [CATransformLayer](https://developer.apple.com/library/prerelease/ios/documentation/GraphicsImaging/Reference/CATransformLayer_class/index.html#//apple_ref/occ/cl/CATransformLayer)
@@ -32,9 +32,31 @@ CAShapeLayer是一个通过矢量图形而不是bitmap来绘制的图层子类.�
 
 CAShapeLayer具有一个很特殊特殊属性是path,path以及其他属性（比如颜色，宽度等）可以基本满足我们的图形绘制需求，同时在Core Animatin的框架中我们能够很容易的实现基于“绘制过程”的动画。比如：文字书写过程的动画。
 
-PS:core Aniamtio动画的关键体是Layer，所以针对Layer的属性动画都有一套基本的实现，后续我会讲述如何__自定义Layer属性实现动画___
+* path  : The path defining the shape to be rendered. Animatable.
 
-### 
+### CAGradientLayer
+ CAGradientLayer是主要用来生成两种或更多颜色平滑渐变的。相较于Core Graphics的颜色渐变。CAGradientLayer的真正好处在于绘制使用了硬件加速。
+ CAGradientLayer的主要熟悉是__colors__用于描述渐变颜色变化
+ 
+ * colors : An array of CGColorRef objects defining the color of each gradient stop. Animatable.
+ 
+### CAReplicatorLayer
+
+CAReplicatorLayer是一个图层容器，主要是为内容图层（subLayers） 创建一系列内容的copy镜像，他支持设定copy数目，copy过程中应用的CATransform3D,颜色变化，值得注意的是这里应用的CATransform3D变化或者颜色变化都只针对上一个copy图层而言。
+
+CAReplicatorLayer 的主要用处是：
+
+* 1： 镜像放射（倒影）
+* 2： 跟随动画 （适用于多个一摸一样的元素，比如loadding 框）
+
+在参看文献中给出一篇关于CAReplicatorLayer动画的文章，有兴趣可以阅读下
+
+### CATiledLayer
+
+
+
+
+### PS:core Aniamtio动画的关键体是Layer，所以针对Layer的属性动画都有一套基本的实现，后续我会讲述如何__自定义Layer属性实现动画___
 
 
 
@@ -47,8 +69,17 @@ PS:core Aniamtio动画的关键体是Layer，所以针对Layer的属性动画都
 [disable anti-aliasing for UIBezierPath](http://www.4byte.cn/question/1010686/disable-anti-aliasing-for-uibezierpath.html)
 
 
+###  CAGradientLayer
+* [CAGradientLayer class](https://developer.apple.com/library/prerelease/ios/documentation/GraphicsImaging/Reference/CAGradientLayer_class/index.html#//apple_ref/occ/instp/CAGradientLayer/colors)
+* [Animated progress view with CAGradientLayer](https://nrj.io/animated-progress-view-with-cagradientlayer/)
 
 
+### CAReplicatorLayer
+* [CAReplicatorLayer Class]()
+* [Creating animations with CAReplicatorLayer](http://www.ios-animations-by-emails.com/posts/2015-march)
 
 
+#### CATiledLayer
+
+* [CATiledLayer: how to use it, how it works, what it does](http://red-glasses.com/index.php/tutorials/catiledlayer-how-to-use-it-how-it-works-what-it-does/)
 
