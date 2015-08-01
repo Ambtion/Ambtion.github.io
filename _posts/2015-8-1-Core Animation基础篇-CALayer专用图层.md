@@ -10,7 +10,7 @@
 *  [CAReplicatorLayer](https://developer.apple.com/library/prerelease/ios/documentation/GraphicsImaging/Reference/CAReplicatorLayer_class/index.html#//apple_ref/occ/cl/CAReplicatorLayer)
 * [CAScrollLayer](https://developer.apple.com/library/prerelease/ios/documentation/GraphicsImaging/Reference/CAScrollLayer_class/index.html#//apple_ref/occ/cl/CAScrollLayer)
 * [CATransformLayer](https://developer.apple.com/library/prerelease/ios/documentation/GraphicsImaging/Reference/CATransformLayer_class/index.html#//apple_ref/occ/cl/CATransformLayer)
-****
+******
 *  [AVCaptureVideoPreviewLayer](https://developer.apple.com/library/prerelease/ios/documentation/AVFoundation/Reference/AVCaptureVideoPreviewLayer_Class/index.html#//apple_ref/occ/cl/AVCaptureVideoPreviewLayer)
 *  [AVPlayerLayer](https://developer.apple.com/library/prerelease/ios/documentation/AVFoundation/Reference/AVPlayerLayer_Class/index.html#//apple_ref/occ/cl/AVPlayerLayer)
 *  [AVSampleBufferDisplayLayer](https://developer.apple.com/library/prerelease/ios/documentation/AVFoundation/Reference/AVSampleBufferDisplayLayer_Class/index.html#//apple_ref/occ/cl/AVSampleBufferDisplayLayer)
@@ -52,8 +52,28 @@ CAReplicatorLayer 的主要用处是：
 在参看文献中给出一篇关于CAReplicatorLayer动画的文章，有兴趣可以阅读下
 
 ### CATiledLayer
+当我们要绘制一张特别大的图片，比如一个高像素的照片或者是地球表面的详细地图的时候，直接使用UIImage的-imageNamed:方法或者-imageWithContentsOfFile:方法会瞬间吞噬应用较大的内存，甚至引起AppCrash，这显示是不明智的。
+其实绘制在ios设备上图片纹理是大小有限的，所有显示在屏幕上的图片最终都会被转化为OpenGL纹理，同时OpenGL有一个最大的纹理尺寸（这个取决于设备型号屏幕的大小）。
+CATiledLayer就是专门为载入大图造成的性能问题提供了一个解决方案：将大图分解成小片然后将他们单独按需载入。
+
+##### 什么情况下我们特别需要使用CATiledLayer
+
+* 在ScrollView中绘制一张特别巨大的图片（比如超过2096×2096 pixels）
+* 减少巨大图片占用的内存空间
+* 使用缓存流觞的绘制一张巨图
+* 平滑的缩放巨图
+* 在ScrollView中平滑的缩放一些不规则绘制的图形
+
+##### 使用CATiledLayer的优点
+
+* 对UIScrollView进行完美适配，当我们使用UIScroollView展示，CATiledLayer利用缓存保证平移和缩放的流畅和快速，即使缓存没有完成，CATiledLayer也会保证缩放的流畅
+* 通过使用简单的算法，以及较少的缓存，加快渲染速度（比使用UIImage / CGImageRef要快）
+* 对于加载多块图片，自动绑定闪烁加载效果，优化视觉体验
+* 总结一下以上这些优点都是自带的，不需要开发者在代码层级去设置什么，包括缓存的管理。开发成本低
 
 
+
+##### CATextLayer
 
 
 ### PS:core Aniamtio动画的关键体是Layer，所以针对Layer的属性动画都有一套基本的实现，后续我会讲述如何__自定义Layer属性实现动画___
@@ -75,11 +95,14 @@ CAReplicatorLayer 的主要用处是：
 
 
 ### CAReplicatorLayer
-* [CAReplicatorLayer Class]()
+* [CAReplicatorLayer Class](https://developer.apple.com/library/prerelease/ios/documentation/GraphicsImaging/Reference/CAReplicatorLayer_class/index.html#//apple_ref/occ/cl/CAReplicatorLayer)
 * [Creating animations with CAReplicatorLayer](http://www.ios-animations-by-emails.com/posts/2015-march)
 
 
-#### CATiledLayer
-
+### CATiledLayer
+* [CATiledLayer Class](https://developer.apple.com/library/prerelease/ios/documentation/GraphicsImaging/Reference/CATiledLayer_class/index.html#//apple_ref/occ/cl/CATiledLayer)
 * [CATiledLayer: how to use it, how it works, what it does](http://red-glasses.com/index.php/tutorials/catiledlayer-how-to-use-it-how-it-works-what-it-does/)
+* [CATiledLayer private header](https://github.com/Ambtion/iOS-Headers/blob/master/iOS8.1/Frameworks/QuartzCore/CATiledLayer.h)
+* [Catiledlayer Demon](http://www.cimgf.com/2011/03/01/subduing-catiledlayer/)
+
 
