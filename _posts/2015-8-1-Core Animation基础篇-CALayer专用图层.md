@@ -4,21 +4,25 @@
 
 ## CALayer 专用图层
 
+划线上面部分会有详细讲解，下面部分感兴趣请点击链接，查阅官网文档
+
 *  [CAShapeLayer](https://developer.apple.com/library/prerelease/ios/documentation/GraphicsImaging/Reference/CAShapeLayer_class/index.html#//apple_ref/occ/cl/CAShapeLayer) 
 * [CAGradientLayer](https://developer.apple.com/library/prerelease/ios/documentation/GraphicsImaging/Reference/CAGradientLayer_class/index.html#//apple_ref/occ/cl/CAGradientLayer)
 * [CATextLayer](https://developer.apple.com/library/prerelease/ios/documentation/GraphicsImaging/Reference/CATextLayer_class/index.html#//apple_ref/occ/cl/CATextLayer)
 *  [CAReplicatorLayer](https://developer.apple.com/library/prerelease/ios/documentation/GraphicsImaging/Reference/CAReplicatorLayer_class/index.html#//apple_ref/occ/cl/CAReplicatorLayer)
-* [CAScrollLayer](https://developer.apple.com/library/prerelease/ios/documentation/GraphicsImaging/Reference/CAScrollLayer_class/index.html#//apple_ref/occ/cl/CAScrollLayer)
-* [CATransformLayer](https://developer.apple.com/library/prerelease/ios/documentation/GraphicsImaging/Reference/CATransformLayer_class/index.html#//apple_ref/occ/cl/CATransformLayer)
+*  [CATiledLayer](https://developer.apple.com/library/prerelease/ios/documentation/GraphicsImaging/Reference/CATiledLayer_class/index.html#//apple_ref/occ/cl/CATiledLayer)
+* [CAEmitterLayer](https://developer.apple.com/library/prerelease/ios/documentation/GraphicsImaging/Reference/CAEmitterLayer_class/index.html#//apple_ref/occ/cl/CAEmitterLayer)
+
 ******
+
+* [CATransformLayer](https://developer.apple.com/library/prerelease/ios/documentation/GraphicsImaging/Reference/CATransformLayer_class/index.html#//apple_ref/occ/cl/CATransformLayer)
 *  [AVCaptureVideoPreviewLayer](https://developer.apple.com/library/prerelease/ios/documentation/AVFoundation/Reference/AVCaptureVideoPreviewLayer_Class/index.html#//apple_ref/occ/cl/AVCaptureVideoPreviewLayer)
 *  [AVPlayerLayer](https://developer.apple.com/library/prerelease/ios/documentation/AVFoundation/Reference/AVPlayerLayer_Class/index.html#//apple_ref/occ/cl/AVPlayerLayer)
 *  [AVSampleBufferDisplayLayer](https://developer.apple.com/library/prerelease/ios/documentation/AVFoundation/Reference/AVSampleBufferDisplayLayer_Class/index.html#//apple_ref/occ/cl/AVSampleBufferDisplayLayer)
 *  [AVSynchronizedLayer](https://developer.apple.com/library/prerelease/ios/documentation/AVFoundation/Reference/AVSynchronizedLayer_Class/index.html#//apple_ref/occ/cl/AVSynchronizedLayer)
 *  [CAEAGLLayer](https://developer.apple.com/library/prerelease/ios/documentation/QuartzCore/Reference/CAEAGLLayer_Class/index.html#//apple_ref/occ/cl/CAEAGLLayer)
-*  [CAEmitterLayer](https://developer.apple.com/library/prerelease/ios/documentation/GraphicsImaging/Reference/CAEmitterLayer_class/index.html#//apple_ref/occ/cl/CAEmitterLayer)
 *  [CAMetalLayer](https://developer.apple.com/library/prerelease/ios/documentation/Animation/Reference/CAMetalLayer_Ref/index.html#//apple_ref/occ/cl/CAMetalLayer)
-*  [CATiledLayer](https://developer.apple.com/library/prerelease/ios/documentation/GraphicsImaging/Reference/CATiledLayer_class/index.html#//apple_ref/occ/cl/CATiledLayer)
+* [CAScrollLayer](https://developer.apple.com/library/prerelease/ios/documentation/GraphicsImaging/Reference/CAScrollLayer_class/index.html#//apple_ref/occ/cl/CAScrollLayer)
 
 
 ###  CAShapeLayer
@@ -73,11 +77,29 @@ CATiledLayer就是专门为载入大图造成的性能问题提供了一个解�
 
 
 
-##### CATextLayer
+### CATextLayer
+当我们想要自定义绘制文本的适合，Core Graphics写入图层是一个合理的方案，但是如果我们想要越过视图，直接在图层上绘制，那么讲会十分的繁琐。幸运的是，Core Animation提供了一个CALayer的子类CATextLayer，它以图层的形式包含了UILabel几乎所有的绘制特性，并且额外提供了一些新的特性。
+CATextLayer 相交于UILabel的优点
 
+* 1：CATextLayer渲染速度快。在IOS6及其之前的版本，UILabel是通过webKit实现的，所以当文字多的适合绘制压力很大；CATextLayer则是直接使用Core Text框架实现渲染，并且使用硬件加速，所以使用CATextLayer的渲染速度非常快。
+* 2：CATextLayer功能更加丰富。在IOS6之前的UILabel不支持富文本，但是CATextLayer支持富文本，行距等。
 
-### PS:core Aniamtio动画的关键体是Layer，所以针对Layer的属性动画都有一套基本的实现，后续我会讲述如何__自定义Layer属性实现动画___
+###  CAEmitterLayer
 
+* 在iOS 5中，苹果引入了一个新的CALayer子类叫做CAEmitterLayer。CAEmitterLayer是一个高性能的粒子引擎，被用来创建实时例子动画如：烟雾，火，雨等等这些效果.
+
+* CAEmitterLayer看上去像是许多CAEmitterCell的容器，这些CAEmitierCell定义了一个例子效果。你将会为不同的例子效果定义一个或多个CAEmitterCell作为模版，同时CAEmitterLayer负责基于这些模版实例化一个粒子流.
+CAEmitterLayer中需要注意的几个属性
+* 1： [RenderMode](https://developer.apple.com/library/prerelease/ios/documentation/GraphicsImaging/Reference/CAEmitterLayer_class/index.html#//apple_ref/c/data/kCAEmitterLayerUnordered) 控制着在视觉上粒子图片是如何混合的 。其中kCAEmitterLayerAdditive，它实现了这样一个效果：合并例子重叠部分的亮度使得看上去更亮。默认是kCAEmitterLayerUnordered. 
+
+* 2 :birthRate，lifetime和celocity，这些属性在CAEmitterCell中也有。这些属性会以相乘的方式作用在一起，这样你就可以用一个值来加速或者扩大整个例子系统
+
+###  总结
+*  本章挑选的讲了一些可能使用到的专用图层。如有兴趣，可以查阅官方CALayer的继承结构，
+*  Core Aniamtion动画的关键体是Layer，所以针对Layer的属性动画都有一套基本的实现，后续我会讲述如何__自定义Layer属性实现动画___
+*  UIView是对CALayer的基本封装，一般情况下部分CALayer的功能比对于的UIView更加丰富
+*  Core Aniamtion 框架对CALayer的实现使用硬件加速，所以一般渲染速度较快
+*  使用CALayer的专用图层实现功能，一般都是继承UIView，重载 + (Class)layerClass方法。也可以直接add到UIView的layer容器上，但是使用这种方法要注意隐式动画（后面会讲）
 
 
 ## 参考文献
@@ -104,5 +126,6 @@ CATiledLayer就是专门为载入大图造成的性能问题提供了一个解�
 * [CATiledLayer: how to use it, how it works, what it does](http://red-glasses.com/index.php/tutorials/catiledlayer-how-to-use-it-how-it-works-what-it-does/)
 * [CATiledLayer private header](https://github.com/Ambtion/iOS-Headers/blob/master/iOS8.1/Frameworks/QuartzCore/CATiledLayer.h)
 * [Catiledlayer Demon](http://www.cimgf.com/2011/03/01/subduing-catiledlayer/)
+
 
 
