@@ -53,6 +53,7 @@
 
   继承UIView 实现 drawRect: 自定义绘制内容。（__注意：当系统检查到DrawRect被调用的时候，系统会为视图分配一个寄宿图，这个寄宿图的大小等于视图大小乘以contentsScale。所以不要在自定义的视图中写一个空的DrawRect函数__）
   
+  
 * #### CALayer
 
 ##### 通过CALayerDelegate协议
