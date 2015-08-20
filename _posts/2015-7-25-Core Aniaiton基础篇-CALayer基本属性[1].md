@@ -50,12 +50,12 @@
 #### 自定义图层内容
 
 
-* #### UIView
+#### UIView
 
   继承UIView 实现 drawRect: 自定义绘制内容。（__注意：当系统检查到DrawRect被调用的时候，系统会为视图分配一个寄宿图，这个寄宿图的大小等于视图大小乘以contentsScale。所以不要在自定义的视图中写一个空的DrawRect函数__）
   
   
-* #### CALayer
+#### CALayer
 
 ##### 通过CALayerDelegate协议
 
@@ -88,13 +88,13 @@
 
 CALayer提供了3个比较重要的属性来确定图层位置，其中frame通过position(center)和bouds计算确定，
 
-* ##### frame   
-* ##### bounds   
-* ##### position
+* frame   
+* bounds   
+* position
 
 CALayer还有一个特别重要的几何属性：锚点（anchorPoint）
 
-* #### anchorPoint
+* anchorPoint
 
  关于锚点我们需要明确几点：
  
@@ -105,8 +105,8 @@ CALayer还有一个特别重要的几何属性：锚点（anchorPoint）
  
  和UIView不同的是CALayer处于三维坐标系中，所以CALayer还有另外两个属性，zPosition和anchorPointZ
  
- * #### zPosition
- * #### anchorPointZ
+ *  zPosition
+ *  anchorPointZ
  
  关于z坐标系属性需要明确的一点
  修改图层的z坐标系属性影响的仅仅是图层的展现效果。不影响事件响应链。所以当我们修改z坐标属性，很可能出现一个A视图挡在B视图前面，且都可以响应事件的前提下，B视图反而优先与A视图响应事件。
@@ -123,24 +123,24 @@ CALayer提供了一套不同坐标系下转换坐标的方法：
 PS：对应的UIView也有一套封装的方法。函数前缀名字都是convertPoint 或者convertRect。
 
 #### 视图变换
-* #### CATransform3D
+*  CATransform3D
 这里需要明确的几点是：
 
 ###### 1：视图矩阵变换是二维空间，图层变换是三维空间。
 ###### 2：矩阵变换可以拼接，我们仅仅需要调用系统函数即可，不需要太深入理解矩阵计算。
 ###### 3：在3D变换中有需要理解“[透视投影](http://baike.baidu.com/link?url=weyHf8BG2dzTzSaIUI3fSKD3SherW3T532Iiv8c-HDY3QlqvkDPAYVjHk0SZ3tWl0ovbAWOhaXtYNUhypPGXu_)”的概念CATransform3D的透视效果通过一个矩阵中一个很简单的元素来控制：m34。m34的默认值是0，我们可以通过设置m34为-1.0 / d来应用透视效果，d代表了想象中视角相机和屏幕之间的距离，通常d=500-1000就可。
 
-* #### sublayerTransform
+*  sublayerTransform
 sublayerTransform会自动应用于Layer上的所有子图层，默认是identity transform
 
 ### 图层的其他属性
-* ##### conrnerRadius 圆角
-* ##### shadowOpacity 阴影透明度
-* #### shadowColor 阴影颜色
-* #### shadowOffset 阴影偏移
-* #### shadowRadius 控制阴影边界过度，值越大，边界越模糊
-* #### shadowPath通过CGPath自定阴影形状
-* #### mask mask是视图的一个子图层，他有图层所有的属性，他自定图层显示的内容
+*  conrnerRadius 圆角
+*  shadowOpacity 阴影透明度
+*  shadowColor 阴影颜色
+*  shadowOffset 阴影偏移
+*  shadowRadius 控制阴影边界过度，值越大，边界越模糊
+*  shadowPath通过CGPath自定阴影形状
+*  mask mask是视图的一个子图层，他有图层所有的属性，他自定图层显示的内容
 
 ![](https://github.com/Ambtion/ambtion.github.io/blob/master/imageSource/CoreAnimaiton/CAlayer1/calayer_mask.png?raw=ture)
 
