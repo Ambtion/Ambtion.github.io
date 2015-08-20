@@ -49,6 +49,7 @@
 	
 #### 自定义图层内容
 
+
 * #### UIView
 
   继承UIView 实现 drawRect: 自定义绘制内容。（__注意：当系统检查到DrawRect被调用的时候，系统会为视图分配一个寄宿图，这个寄宿图的大小等于视图大小乘以contentsScale。所以不要在自定义的视图中写一个空的DrawRect函数__）
@@ -87,9 +88,9 @@
 
 CALayer提供了3个比较重要的属性来确定图层位置，其中frame通过position(center)和bouds计算确定，
 
-* #### frame   
-* #### bounds   
-* #### position
+* ##### frame   
+* ##### bounds   
+* ##### position
 
 CALayer还有一个特别重要的几何属性：锚点（anchorPoint）
 
