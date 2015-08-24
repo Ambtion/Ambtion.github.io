@@ -40,7 +40,17 @@ CABAsicAnimation继承于CAPropertyAnimation，并添加了如下属性：
 
 fromValue代表了动画开始之前属性的值，toValue代表了动画结束之后的值，byValue代表了动画执行过程中改变的值。也就是fromValue +  byValue = toValue;所以为了防止冲突，我们不需要一次制定三个属性值。
 
-fromValue， toValue， byValue之所以指定是__id__类型是因为它
+fromValue， toValue， byValue之所以指定是__id__类型是因为它可以支持多中类型的数据结构:
+
+* 1: NSNumber封装的类型,比如CGFloat，NSInteger等
+* 2: NSValue封装的类型，比如CGPoint，CGSize，CATransform3D等
+* 3: CGImageRef类型
+* 4: CGColorRef类型
+
+
+
+
+
 	
 ####  CAKeyframeAnmatoin
 
