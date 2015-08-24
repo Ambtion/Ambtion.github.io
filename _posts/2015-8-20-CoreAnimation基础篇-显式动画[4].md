@@ -10,8 +10,8 @@ IOS系统一个很重要的特色就是它的动画流畅，优美。为了实�
 在这个模块中，我们需要明确理解的知识点分别是:
 
 * 1: CAAnimation是做什么的，它实现的NSCoding,CAMediaTiming,CAAction协议分别实现了什么功能
-* 2: CAAnimaitonGrop，CAPropertyAnimaiton，CATranstion各自的应用场景
-* 3: CABAsicAnimaiton,CAKeyframeAnmation的各自应用场景
+* 2: CAAnimaitonGrop，CAPropertyAnimaiton，CATranstion各自场景
+* 3: CABAsicAnimaiton,CAKeyframeAnmation的各自场景
 
 ### CAAnimation
 
@@ -46,13 +46,9 @@ fromValue， toValue， byValue之所以指定是__id__类型是因为它可以�
 * 2: NSValue封装的类型，比如CGPoint，CGSize，CATransform3D等
 * 3: CGImageRef类型
 * 4: CGColorRef类型
-
-
-
-
-
 	
 ####  CAKeyframeAnmatoin
+
 
 ###  CATranstoin
 
