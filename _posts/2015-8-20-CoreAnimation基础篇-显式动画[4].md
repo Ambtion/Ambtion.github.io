@@ -42,15 +42,50 @@ fromValue代表了动画开始之前属性的值，toValue代表了动画结束�
 
 fromValue， toValue， byValue之所以指定是__id__类型是因为它可以支持多中类型的数据结构:
 
-* 1: NSNumber封装的类型,比如CGFloat，NSInteger等
-* 2: NSValue封装的类型，比如CGPoint，CGSize，CATransform3D等
-* 3: CGImageRef类型
-* 4: CGColorRef类型
+* 1: integers and doubles
+* 2: CGRect, CGPoint, CGSize, and CGAffineTransform 
+* 3: ATransform3D data structures
+* 4: CGColor and CGImage references
 	
 ####  CAKeyframeAnmatoin
 
+CAKeyframeAnmatoin主要提供了一种对动画关键帧控制的能力。
+CAKeyframeAnmatoin提供了两个属性来控制动画关键帧
+
+* 1: a Core Graphics path（Path属性）  
+
+* 2: 一个数值的Array(Values属性)
+
+Path属性主要适用CALayer的__anchorPoint__或者__position__这些CGPoint类型的属性。当设置Path属性,轨迹会按照Path的每一个点去执行动画。当Path属性设置，Values属性自动忽略。
+同时在使用Path控制关键帧动画的时候，我们可以通过设置rotationMode属性，从而是Layer旋转从而匹配Path轨迹的移动。
+
+Values属性适用与CALayer的任何属性的动画关键帧控制。例如：
+
+* 1：提供一个CGImage对象组成的Array,可以控制CALayer的content按照给定内容的执行动画。
+* 2：提供一个CATransform3D对象组成的Array,可以控制CALayer的transform按照给定内容执行动画
+
 
 ###  CATranstoin
+
+CATranstoin主要用于转场动画的创建，它影响是整个CALayer，而非CALayer的一个属性变化
+IOS系统公开了四种类型的CATranstoin动画，分别是
+
+* kCATransitionFade
+* kCATransitionMoveIn
+* kCATransitionPush
+* kCATransitionReveal
+
+同时通过SubType来控制转场动画的方向，分别是
+
+* kCATransitionFromRight
+* kCATransitionFromLeft
+* kCATransitionFromTop
+* kCATransitionFromBottom
+
+另外CATranstoin提供了一个自动以转场动画的接口。filter(滤镜接口)。使用该功能需要注意的是：
+
+* 1：Core Image 是在IOS5及其以后公开的，所以在IOS5以前使用滤镜接口无效，也可以理解为IOS系统上该功能支持5及其以后系统
+* 2：设置的filter生效后，默认替代type和SubType
 
 
 ###  CAAnimationGrop
@@ -60,9 +95,23 @@ fromValue， toValue， byValue之所以指定是__id__类型是因为它可以�
 需要注意的是CAAnimaitonGrop不会改变其所包含的动画行为的时间。举个例子：
 
 有一个CABAsicAnimaiton A, A.duraiton = 5s. 
-有一个CAAnimaitonGrop B,B包含A
+有一个CAAnimaitonGrop  B, B包含A
 当B.duration = 10s。 动画执行时间是10s,执行5s
 当B.duration = 4s。  动画执行时间是4s,执行4s
+
+
+### 总结
+
+本章主要将了Core Animation提供的动画扩展功能
+
+* CAAnimation是一个基本的抽象动画类，主要实现了动画的时间，动画获取通道，以后动画什么周期的代理回调
+
+* CAPropertyAnimation是CAAnimation的一个抽象子类，主要实现了对CALayer的KeyPath变化的动画支持
+* CABasicAnimation是CAPropertyAnimation的子类，主要实现对CALayer的单一属性变化的动画支持
+* CAKeyframeAnimatio是CAPropertyAnimation的子类，主要提供了通过Path和Valuse两个接口控制动画关键帧的能力
+* CATransition主要用于对整个CALayer的动画影响，除了苹果公开的动画类型，我们可以使用Fillter自定义转场动画。
+* CAAnimationGroup主要是运行一堆动画在同时执行
+
 
 ### 参看文献
 
