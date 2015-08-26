@@ -42,19 +42,19 @@ fromValue代表了动画开始之前属性的值，toValue代表了动画结束�
 
 fromValue， toValue， byValue之所以指定是__id__类型是因为它可以支持多中类型的数据结构:
 
-* 1: integers and doubles
-* 2: CGRect, CGPoint, CGSize, and CGAffineTransform 
-* 3: ATransform3D data structures
-* 4: CGColor and CGImage references
+	1: integers and doubles
+	2: CGRect, CGPoint, CGSize, and CGAffineTransform 
+	3: ATransform3D data structures
+	4: CGColor and CGImage references
 	
 ####  CAKeyframeAnmatoin
 
 CAKeyframeAnmatoin主要提供了一种对动画关键帧控制的能力。
 CAKeyframeAnmatoin提供了两个属性来控制动画关键帧
 
-* 1: a Core Graphics path（Path属性）  
+	1: a Core Graphics path（Path属性）  
 
-* 2: 一个数值的Array(Values属性)
+	2: 一个数值的Array(Values属性)
 
 Path属性主要适用CALayer的__anchorPoint__或者__position__这些CGPoint类型的属性。当设置Path属性,轨迹会按照Path的每一个点去执行动画。当Path属性设置，Values属性自动忽略。
 同时在使用Path控制关键帧动画的时候，我们可以通过设置rotationMode属性，从而是Layer旋转从而匹配Path轨迹的移动。
@@ -70,17 +70,17 @@ Values属性适用与CALayer的任何属性的动画关键帧控制。例如：
 CATranstoin主要用于转场动画的创建，它影响是整个CALayer，而非CALayer的一个属性变化
 IOS系统公开了四种类型的CATranstoin动画，分别是
 
-* kCATransitionFade
-* kCATransitionMoveIn
-* kCATransitionPush
-* kCATransitionReveal
+	kCATransitionFade
+	kCATransitionMoveIn
+	kCATransitionPush
+	kCATransitionReveal
 
 同时通过SubType来控制转场动画的方向，分别是
 
-* kCATransitionFromRight
-* kCATransitionFromLeft
-* kCATransitionFromTop
-* kCATransitionFromBottom
+	kCATransitionFromRight
+	kCATransitionFromLeft
+	kCATransitionFromTop
+	kCATransitionFromBottom
 
 另外CATranstoin提供了一个自动以转场动画的接口。filter(滤镜接口)。使用该功能需要注意的是：
 
