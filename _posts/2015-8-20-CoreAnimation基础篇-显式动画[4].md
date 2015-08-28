@@ -50,6 +50,7 @@ fromValue， toValue， byValue之所以指定是__id__类型是因为它可以�
 ####  CAKeyframeAnmatoin
 
 CAKeyframeAnmatoin主要提供了一种对动画关键帧控制的能力。
+
 CAKeyframeAnmatoin提供了两个属性来控制动画关键帧
 
 	1: a Core Graphics path（Path属性）  
