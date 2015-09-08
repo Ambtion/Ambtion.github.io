@@ -50,8 +50,13 @@ CAMediaTimingFunction的functionWithControlPoints::::通过函数传入的两个
 
 关于贝塞尔曲线原理可以参考[贝塞尔曲线的数学原理](http://blog.csdn.net/likendsl/article/details/7852658)。
 
+由于曲线的起始和终点始终是{0, 0}和{1, 1}，于是我们只需要设置的也就是曲线的第二个和第三个点（控制点）
+下面是所有系统提供标准缓冲函数的图像
+![所有的标准缓冲函数的图像](https://github.com/Ambtion/ambtion.github.io/blob/master/imageSource/CoreAnimaiton/CAMediaTimingFunction/CAMediaTimingFunciton_defoult%E5%87%BD%E6%95%B0.png?raw=ture)
 
-[](http://cubic-bezier.com/)
+这里推荐两个关于CAMediaTimingFunction的工具
+[cubic-bezier](http://cubic-bezier.com/)
+[CAMediaTimingFunction Xcode插件](https://github.com/keefo/CATweaker)
 	
 ### 参考文档
 
