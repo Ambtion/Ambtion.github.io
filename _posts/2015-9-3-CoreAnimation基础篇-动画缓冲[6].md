@@ -42,8 +42,10 @@ CAMediaTimingFunction主要提供了两种初始化方法
 
 CAMediaTimingFunction函数的主要原则在于它把输入的时间转换成起点和终点之间成比例的改变。
 
-	
-	
+
+
+[](http://cubic-bezier.com/)
+[](http://blog.csdn.net/likendsl/article/details/7852658)	
 ### 参考文档
 
 [CAMediaTimingFunction](https://developer.apple.com/library/mac/documentation/Cocoa/Reference/CAMediaTimingFunction_class/)
