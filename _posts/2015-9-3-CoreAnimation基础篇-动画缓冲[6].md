@@ -42,10 +42,17 @@ CAMediaTimingFunction主要提供了两种初始化方法
 
 CAMediaTimingFunction函数的主要原则在于它把输入的时间转换成起点和终点之间成比例的改变。
 
+![](https://github.com/Ambtion/ambtion.github.io/blob/master/imageSource/CoreAnimaiton/CAMediaTimingFunction/CAMediaTimingFunction%E5%87%BD%E6%95%B0.png?raw=ture)
+
+上图是一个表示CAMediaTimingFunction函数的图标，X轴表示时间，Y轴表示改变的变量。所以线的斜率代表对应时间的速度。上图表示“一个线性的计时函数”。
+
+CAMediaTimingFunction的functionWithControlPoints::::通过函数传入的两个点，起始点，结束点一共4个点来控制一个 __三次贝塞尔曲线__。通过制定的两个点的位置从而控制曲线不同时间的斜率（也就是速度）。从而达到控制动画速度的效果。
+
+关于贝塞尔曲线原理可以参考[贝塞尔曲线的数学原理](http://blog.csdn.net/likendsl/article/details/7852658)。
 
 
 [](http://cubic-bezier.com/)
-[](http://blog.csdn.net/likendsl/article/details/7852658)	
+	
 ### 参考文档
 
 [CAMediaTimingFunction](https://developer.apple.com/library/mac/documentation/Cocoa/Reference/CAMediaTimingFunction_class/)
