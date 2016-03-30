@@ -71,7 +71,7 @@ IOS9通过allowsBackgroundLocationUpdates(缺少NO)控制后台定位是否打�
 #### Regions
 * `系统级服务`,要求用户`始终定位`的授权
 * 该服务	频率高于`Significant Location Changes`，却低于普通定位。该服务主要用户监控用户`进出`围栏的动作。使用该服务，需要先向系统注册一个围栏（`最大限制20个`），围栏是由中心点（经纬度）、半径（几十米到几千公里，注意最大的半径范围设备有关，可以通过`CLLocationManager`的`maximumRegionMonitoringDistance`获得）组成。
-* Demon[地址](https://github.com/Ambtion/FenceDemon.git)
+* Demon[地址](https://github.com/Ambtion/LocationFence)
 
 #### Beacon
 * `系统级服务`
