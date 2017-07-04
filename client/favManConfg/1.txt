@@ -1,3 +1,0 @@
-{
-	"UseFavManData":1
-}
