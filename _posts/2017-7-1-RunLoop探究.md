@@ -197,8 +197,16 @@ CFRunLoopRunSpecific实现
 ![Alt text](https://github.com/Ambtion/ambtion.github.io/blob/master/imageSource/runloop/runLoopSource.png?raw=ture)
 
 
+# 参看文献
 
+[官方文档](https://developer.apple.com/library/archive/documentation/Cocoa/Conceptual/Multithreading/RunLoopManagement/RunLoopManagement.html)
 
+[Runloop源码](https://opensource.apple.com/source/CF/CF-1151.16/CFRunLoop.c)
+
+[Runloop 深入浅出，综合解答
+](https://blog.csdn.net/hherima/article/details/51746125)
+
+[iOS实时卡顿检测-RunLoop](https://www.jianshu.com/p/d0aab0eb8ce4)
 
 
  
