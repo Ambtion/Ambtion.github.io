@@ -242,4 +242,10 @@ _class_initialize 执行类initialize 方法，并且设置标记位
 * 消息转发中判断methodSignatureForSelector 用于多对象转发，如实现签名,签名规则点[这里](https://www.jianshu.com/p/e4237de0aedb)，触发forwardInvocation;
 
 
+## 参考
+[oc 类方法和实例方法底层实现](https://www.jianshu.com/p/7ce4c55890e8)
+[深入探究SEL,Method,IMP
+](https://www.jianshu.com/p/94040934bfdc)
+[RuntimeAnalyze](https://github.com/DeveloperErenLiu/RuntimeAnalyze)
+[method签名](https://www.jb51.net/article/105280.htm)
 
