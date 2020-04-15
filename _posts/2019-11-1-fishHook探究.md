@@ -70,7 +70,7 @@ nlist_64. n_un. n_strx 记录函数符号在strtab中的地址。
 
 ## 文献
 
-[fishhook官方文档&源码阅读](https://github.com/facebook/fishhook)
+[fishhook官方文档](https://github.com/facebook/fishhook)
 
 [Mach-O实现static函数的动态调用](https://www.jianshu.com/p/48afe039019c)
 
