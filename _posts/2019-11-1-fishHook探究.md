@@ -68,6 +68,8 @@ nlist_64. n_un. n_strx 记录函数符号在strtab中的地址。
 
 到此，fishhook完成系统C函数的hook；
 
+最后，根据以上查找关系，也可通过符号表查找自定义静态地址[git demon](https://github.com/Ambtion/HookStaticMethod)
+
 ## 文献
 
 [fishhook官方文档&源码阅读](https://github.com/facebook/fishhook)
